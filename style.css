@@ -49,6 +49,18 @@ body {
         margin-left: 0px;
     }
 
+/* Container centralizado usado nas páginas */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Evita que a navbar fixa cubra o conteúdo */
+body {
+    padding-top: 72px;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -89,15 +101,35 @@ body {
 /* --- LADO DA IMAGEM --- */
 .about-image-container {
     position: relative;
-    flex: 1;
+    flex: 0 0 390px;
+    width: 390px;
+    max-width: 100%;
 }
 
 .main-photo {
     width: 100%;
+    height: auto;
     max-width: 390px;
     border-radius: 15px;
     position: relative;
     z-index: 2;
+}
+
+@media (max-width: 900px) {
+    .about-grid {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .about-image-container,
+    .about-text {
+        width: 100%;
+        flex: 1 1 100%;
+    }
+
+    .about-section {
+        padding: 80px 5%;
+    }
 }
 
 /* Adornos (Pontos e Formas) */
@@ -216,21 +248,27 @@ body {
 }
 
 .card {
-    background-image: url('image/Banner\ azul.png'); /* Substitua pelo caminho da sua imagem */
-    background-size: cover;
-    background-position: center;
     width: 100%;
-    height: 200px;
-    background: #ddd;
+    background: transparent;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: center;
-    border-radius: 10px;
+    border-radius: 1.5rem;
     transition: transform 0.3s;
+    overflow: hidden;
+    min-height: 0;
 }
 
 .card:hover {
     transform: translateY(-10px);
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 1.5rem;
 }
 
 .social-link { font-size: 20px; }
@@ -340,3 +378,59 @@ body {
 
         .footer-bottom b { color: #00d4ff; }
     
+
+        /* ---------- Regras Responsivas Adicionais ---------- */
+
+        /* Ajustes para telas muito largas */
+        @media (min-width: 1600px) {
+            .banner {
+                height: 90vh;
+            }
+            .about-text h1 {
+                font-size: 56px;
+            }
+            .grid-gallery {
+                gap: 28px;
+                grid-auto-rows: 260px;
+            }
+        }
+
+        /* Ajustes para tablets e telas pequenas (ajuste fino) */
+        @media (max-width: 900px) {
+            .navbar { padding: 8px 4%; }
+            .navbar ul { gap: 12px; }
+            .banner { height: 45vh; background-position: top; margin-top: 56px; }
+            .about-section { padding: 60px 4%; }
+            .about-text h1 { font-size: 34px; }
+            .grid-projetos { gap: 16px; }
+            .grid-gallery { grid-auto-rows: 180px; gap: 16px; }
+            .gallery-item.top-overlay { transform: translateY(0); position: relative; }
+        }
+
+        /* Menu e header para telas muito pequenas */
+        @media (max-width: 700px) {
+            .navbar { padding: 10px 6%; }
+            .navbar ul { flex-direction: column; gap: 10px; align-items: flex-end; }
+            .navbar ul li { margin-left: 0; }
+            .logo img { width: 60px; }
+            .section-title { font-size: 1.4rem; }
+        }
+
+        /* Pequenos ajustes para celulares estreitos */
+        @media (max-width: 480px) {
+            .grid-gallery { grid-auto-rows: 140px; gap: 12px; }
+            .gallery-item.top-overlay { max-width: 160px; width: calc(100% - 40px); transform: translateY(0); justify-self: center; }
+            .banner { height: 36vh; }
+        }
+
+        /* Ajustes para celulares pequenos */
+        @media (max-width: 480px) {
+            .section-title { font-size: 1.6rem; }
+            .about-text h1 { font-size: 28px; }
+            .navbar ul { gap: 8px; font-size: 14px; }
+            .banner { height: 40vh; margin-top: 56px; }
+            .grid-gallery { gap: 12px; grid-auto-rows: 140px; }
+            .gallery-item.top-overlay { max-width: 160px; width: calc(100% - 40px); transform: translateY(0); justify-self: center; }
+            .footer-container { padding: 20px; gap: 20px; }
+        }
+

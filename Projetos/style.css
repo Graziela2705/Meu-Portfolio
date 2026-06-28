@@ -53,16 +53,38 @@ body {
         margin-left: 0px;
     }
 
+/* Container centralizado para esta página */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Previne que a navbar fixa cubra o conteúdo */
+body {
+    padding-top: 72px;
+}
+
 .banner {
     background-image: url('../image/Banner.png'); /* Substitua pelo caminho da sua imagem */
     background-size: cover;
     background-position: center;
-    height: 800px; /* Altura fixa para o banner */
     width: 100%; /* Largura total */
+    min-height: 60vh;
+    max-height: 90vh;
+    height: min(70vh, 700px);
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 60px; /* Espaço para acomodar a navbar fixa */
+}
+
+@media (max-width: 768px) {
+    .banner {
+        min-height: 45vh;
+        height: auto;
+        padding: 4rem 0;
+    }
 }
 
 
@@ -85,10 +107,13 @@ body {
 /* Container do Grid */
 .grid-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-auto-rows: 200px; /* Altura base de cada linha */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-auto-rows: 200px; /* Altura fixa de cada linha */
     grid-auto-flow: dense; /* Preenche espaços vazios automaticamente */
-    gap: 15px;
+    gap: 20px;
+    width: 100%;
+    margin-bottom: 36px; /* Espaçamento consistente entre galerias */
+    position: relative; /* para permitir overlays posicionados */
 }
 
 /* Item da Galeria */
@@ -102,7 +127,8 @@ body {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit:fill; /* Garante que a foto preencha o espaço sem distorcer */
+    object-fit: cover;
+    display: block;
     transition: transform 0.5s ease;
 }
 
@@ -120,7 +146,48 @@ body {
     grid-row: span 2;
 }
 
-/* Efeito de Overlay (Legenda ao passar o mouse) */
+/* Estilização Geral do Rodapé */
+.footer-custom {
+    background: linear-gradient(135deg, #000000 0%, #161616 100%);
+    color: #ffffff;
+    padding: 60px 0 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-top: 4px solid #ff00b3;
+}
+
+/* Navbar mobile specific for this page */
+@media (max-width: 700px) {
+    .navbar { padding: 10px 6%; }
+    .navbar ul { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+    .navbar ul li { margin-left: 0; }
+    .logo img { width: 60px; }
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1200px) {
+    .grid-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-gallery {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item.tall,
+    .gallery-item.wide,
+    .gallery-item.big {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+}
 .overlay {
     position: absolute;
     top: 0;
@@ -160,6 +227,80 @@ body {
     .gallery-item.wide, .gallery-item.big {
         grid-column: span 1;
     }
+}
+
+/* Regras extras para celulares muito pequenos */
+@media (max-width: 480px) {
+    .grid-gallery {
+        grid-auto-rows: 140px;
+        gap: 12px;
+    }
+
+    .gallery-item.big {
+        grid-row: span 1; /* evita itens muito altos */
+    }
+
+    .overlay span {
+        font-size: 1rem;
+        padding: 0 6px;
+    }
+
+    .gallery-item.top-overlay {
+        max-width: 160px;
+        width: calc(100% - 40px);
+        transform: translateY(-30px);
+        justify-self: center;
+    }
+
+    .gallery-item img {
+        object-position: center top; /* mostra mais do topo em telas estreitas */
+    }
+}
+
+.image-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.image-modal.active {
+    display: flex;
+}
+
+.image-modal-content {
+    position: relative;
+    max-width: 95vw;
+    max-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-modal-content img {
+    max-width: 100%;
+    max-height: 95vh;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+.image-modal-close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.18);
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
 }
 
 

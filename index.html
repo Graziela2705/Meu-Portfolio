@@ -6,13 +6,14 @@
     <title>Meu Portfólio | Designer & Front-end</title>
     <link rel="icon" href="image/GDS.png">     
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900 antialiased">
 
-    <nav class="navbar">
-       <div class="logo"><img src="image/GDS.png" width="80"></div>
-        <ul>
+    <nav class="navbar bg-white/90 backdrop-blur-md shadow-sm">
+       <div class="logo flex items-center"><img src="image/GDS.png" width="80" alt="Logo"></div>
+        <ul class="flex items-center space-x-6 text-sm">
             <li><a href="#sobre">Sobre Mim</a></li>
             <li><a href="Projetos/Projeto.html">Projetos</a></li>
             <li><a href="#contato">Contato</a></li>
@@ -23,26 +24,25 @@
         <!-- Apenas a imagem de fundo -->
     </div>  
 
-<section id="sobre" class="about-section">
-    <div class="container about-grid">
+<section id="sobre" class="about-section py-24 bg-white">
+    <div class="container about-grid max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="about-image-container">
-            <div class="shape-bg"></div> <div class="dots-pattern dots-red"></div> <div class="dots-pattern dots-green"></div> <img src="image/emocoes.png" alt="Profissional trabalhando" class="main-photo">
+        <div class="about-image-container relative">
+            <div class="shape-bg"></div> <div class="dots-pattern dots-red"></div> <div class="dots-pattern dots-green"></div> <img src="image/emocoes.png" alt="Profissional trabalhando" class="main-photo rounded-3xl shadow-xl">
         </div>
 
-        <div class="about-text">
-            <span class="label">SOBRE MIM</span>
-            <h1>Quem sou: <br> <span class="red-text">Propósito e Competências</span></h1>
+        <div class="about-text relative">
+            <span class="label inline-block mb-4">SOBRE MIM</span>
+            <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Quem sou: <br> <span class="red-text">Propósito e Competências</span></h1>
             
-            <p>Meu nome é Graziela Dilany da Silva, tenho 19 anos e atualmente estudo Desenvolvimento de Software Multiplataformas. Concluí o Ensino Médio Técnico em 2024. Tenho como propósito aplicar e expandir meus conhecimentos em design digital, design gráfico, organização e gravação de vídeos, contribuindo com criatividade, dedicação e responsabilidade em cada projeto.
-             Minhas principais competências incluem:  
-            </p>
+            <p class="text-base leading-relaxed text-slate-600">Meu nome é Graziela Dilany da Silva, tenho 19 anos e atualmente estudo Desenvolvimento de Software Multiplataformas. Concluí o Ensino Médio Técnico em 2024. Tenho como propósito aplicar e expandir meus conhecimentos em design digital, design gráfico, organização e gravação de vídeos, contribuindo com criatividade, dedicação e responsabilidade em cada projeto.
+             Minhas principais competências incluem:</p>
             
-            <ul class="benefit-list">
-                <li>Design gráfico e noções de identidade visual.</li>
-                <li>Conhecimento em ferramentas como Canva, CapCut, Figma, Photoshop.</li>
-                <li>Habilidades em Front-end, Desenvolvimento Web, HTML, CSS e JavaScript.</li>
-                <li>Habilidades com ferramentas de edição de vídeo</li>
+            <ul class="benefit-list space-y-3">
+                <li class="text-base font-medium leading-7">Design gráfico e noções de identidade visual.</li>
+                <li class="text-base font-medium leading-7">Conhecimento em ferramentas como Canva, CapCut, Figma, Photoshop.</li>
+                <li class="text-base font-medium leading-7">Habilidades em Front-end, Desenvolvimento Web, HTML, CSS e JavaScript.</li>
+                <li class="text-base font-medium leading-7">Habilidades com ferramentas de edição de vídeo</li>
             </ul>
 
             <div class="yellow-ring"></div>
@@ -51,25 +51,25 @@
     </div>
 </section>
 
-    <section id="projetos" class="projects">
-        <h2>Meus Projetos</h2>
-        <div class="grid-projetos">
-            <div class="card">
-          <img src="image/Banner azul1.png" class="main-photo">        
+    <section id="projetos" class="projects py-24">
+        <h2 class="text-3xl font-bold text-center mb-10 text-slate-900">Meus Projetos</h2>
+        <div class="grid-projetos grid gap-6 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+            <div class="card rounded-3xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <img src="image/Banner azul1.png" class="project-image" alt="Projeto 1">
             </div>
 
-            <div class="card">
-             <img src="image/Fatecer.png" class="main-photo">     
+            <div class="card rounded-3xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <img src="image/Fatecer.png" class="project-image" alt="Projeto 2">
             </div>
-            <div class="card">
-             <img src="image/img_dm.png" class="main-photo">
+
+            <div class="card rounded-3xl shadow-lg transition-transform duration-300 hover:-translate-y-2">
+                <img src="image/image DMS.png" class="project-image" alt="Projeto 3">
             </div>
         </div>
     </section>
 
-    
-<footer class="footer-custom">
-    <div class="footer-container">
+<footer id="contato" class="footer-custom">
+    <div class="footer-container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="footer-column">
             <h3>PORTFÓLIO</h3>
             <p>Esses projetos são feitos e pensados em cada detalhe. Alguns para grupos e trabalhos internos.</p>
